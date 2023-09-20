@@ -1,5 +1,13 @@
 # React Fundamentals
 
+🚧 **Under Construction** 🚧
+
+This project is currently in development, and I'm actively working on it.
+
+## Overview
+
+This project is a demonstration of a highly scalable web application built using React, Vite, TypeScript, and Jest. It covers all the front-end fundamentals.
+
 #### React Basics
 
 - [x] Use props to pass data to child components.
