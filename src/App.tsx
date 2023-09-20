@@ -2,9 +2,7 @@ import React from "react";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
 import Menu from "./components/Menu";
-// import Products from "./components/Products";
-// import Cart from "./components/Cart";
-// import Checkout from "./components/Checkout";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const menuItems = [
@@ -17,6 +15,7 @@ const App: React.FC = () => {
     <React.StrictMode>
       <Menu items={menuItems} />
       <RouterProvider router={router} />
+      <Footer />
     </React.StrictMode>
   );
 };
