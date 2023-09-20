@@ -1,14 +1,20 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import Title from "./components/Title";
+import Menu from "./components/Menu";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
+  const menuItems = [
+    { title: "Home", link: "/" },
+    { title: "Products", link: "/products" },
+    { title: "Cart", link: "/cart" },
+    { title: "Checkout", link: "/checkout" },
+  ];
   return (
     <>
-      <h1>Vite + React</h1>
+      <Menu items={menuItems} />
+      <Title text="React Fundamentals" />
     </>
   );
-}
+};
 
 export default App;
