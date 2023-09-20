@@ -11,7 +11,7 @@ This project is a demonstration of a highly scalable web application built using
 #### React Basics
 
 - [x] Use props to pass data to child components.
-- [x] Manage component state using useState and useEffect hooks.
+- [ ] Manage component state using useState and useEffect hooks.
 
 #### Routing:
 
