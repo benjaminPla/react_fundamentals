@@ -1,8 +1,8 @@
 # React Fundamentals
 
->🚧 **Under Construction** 🚧
+> 🚧 **Under Construction** 🚧
 >
->This project is currently in development, and I'm actively working on it.
+> This project is currently in development, and I'm actively working on it.
 
 ## Overview
 
@@ -50,12 +50,6 @@ This project is a demonstration of a highly scalable web application built using
 - [ ] Implement functionality to add, remove, and update quantities of items.
 - [ ] Calculate and display the total price.
 
-#### Checkout:
-
-- [ ] Design and implement a checkout process.
-- [ ] Collect shipping and payment information.
-- [ ] Validate and process orders.
-
 #### Forms and Validation:
 
 - [ ] Create forms for user registration, login, and checkout.
@@ -63,12 +57,12 @@ This project is a demonstration of a highly scalable web application built using
 
 #### Styling:
 
-- [ ] Use CSS-in-JS libraries like styled-components or CSS preprocessors (e.g., SCSS) for styling.
-- [ ] Ensure a responsive design for various screen sizes and devices.
+- [x] Use CSS-in-JS libraries like styled-components or CSS preprocessors (e.g., SCSS) for styling.
+- [x] Ensure a responsive design for various screen sizes and devices.
 
 #### Third-Party Libraries:
 
-- [ ] Integrate third-party libraries for features like image carousels, payment processing, or social sharing.
+- [x] Integrate third-party libraries for features like image carousels, payment processing, or social sharing.
 
 #### Error Handling:
 
@@ -84,11 +78,6 @@ This project is a demonstration of a highly scalable web application built using
 - [ ] Write unit tests and integration tests for your components and functionality.
 - [ ] Use testing libraries like Jest and testing utilities like React Testing Library.
 
-#### Deployment:
-
-- [ ] Choose a hosting platform (e.g., AWS, Heroku, Netlify) and deploy your application.
-- [ ] Configure build and deployment scripts.
-
 #### Security:
 
 - [ ] Implement security best practices, such as sanitizing user input, protecting against XSS and CSRF attacks, and securing APIs.
@@ -97,43 +86,21 @@ This project is a demonstration of a highly scalable web application built using
 
 - [ ] Ensure your application is accessible to all users by following web accessibility guidelines (WCAG).
 
-#### Analytics and Monitoring:
-
-- [ ] Integrate analytics tools (e.g., Google Analytics) to track user behavior.
-- [ ] Set up error tracking and monitoring using tools like Sentry.
-
 #### Internationalization (i18n) and Localization (l10n):
 
 - [ ] Support multiple languages and regions by implementing i18n and l10n.
 
 #### Documentation:
 
-- [ ] Document your code, components, and project structure for future maintainability.
+- [x] Document your code, components, and project structure for future maintainability.
 
 #### Version Control:
 
-- [ ] Use Git for version control and collaborate with a team if applicable.
-
-#### Continuous Integration (CI) and Continuous Deployment (CD):
-
-- [ ] Set up CI/CD pipelines to automate testing and deployment processes.
+- [x] Use Git for version control and collaborate with a team if applicable.
 
 #### Scalability and Future Considerations:
 
-- [ ] Plan for scalability as your e-commerce site grows.
-- [ ] Consider adding features like reviews, wishlists, and product recommendations.
-
-#### Legal and Compliance:
-
-- [ ] Ensure your application complies with legal requirements, such as GDPR for data protection and PCI DSS for payment processing.
-
-#### Performance Monitoring:
-
-- [ ] Monitor application performance using tools like New Relic or performance profiling in Chrome DevTools.
-
-#### User Experience (UX):
-
-- [ ] Continuously improve the UX based on user feedback and usability testing.
+- [x] Plan for scalability as your e-commerce site grows.
 
 #### SEO Optimization:
 
