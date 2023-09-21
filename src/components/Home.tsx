@@ -1,24 +1,8 @@
 import React from "react";
 import HomeCard from "./HomeCard";
+import { homeItems } from "../utils/homeItems";
 
 const Home: React.FC = () => {
-  const items = [
-    {
-      title: "React Basics",
-      checks: [
-        "Use props to pass data to child components.",
-        "Manage component state using useState and useEffect hooks.",
-      ],
-    },
-    {
-      title: "Routing",
-      checks: [
-        "Implement client-side routing using React Router or a similar library.",
-        "Set up routes for different pages like home, product listings, product details, cart, and checkout.",
-      ],
-    },
-  ];
-
   return (
     <div className="container">
       <h1 className="display-4">React Fundamentals</h1>
@@ -35,7 +19,7 @@ const Home: React.FC = () => {
         built using React, Vite, TypeScript, and Jest. It covers all the
         front-end fundamentals.
       </p>
-      <HomeCard items={items} />
+      <HomeCard items={homeItems} />
     </div>
   );
 };
