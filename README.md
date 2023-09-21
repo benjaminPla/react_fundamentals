@@ -21,7 +21,7 @@ This project is a demonstration of a highly scalable web application built using
 #### State Management:
 
 - [x] Manage global application state using tools like Redux, Mobx, or React's Context API.
-- [ ] Handle state for features like user authentication, shopping cart, and product selection.
+- [x] Handle state for features like user authentication, shopping cart, and product selection.
 
 #### User Authentication:
 
@@ -31,17 +31,17 @@ This project is a demonstration of a highly scalable web application built using
 
 #### Data Fetching:
 
-- [ ] Fetch data from an API (e.g., RESTful or GraphQL) to populate product listings.
-- [ ] Use Axios, Fetch API, or GraphQL libraries for data retrieval.
+- [x] Fetch data from an API (e.g., RESTful or GraphQL) to populate product listings.
+- [x] Use Axios, Fetch API, or GraphQL libraries for data retrieval.
 
 #### Product Listings:
 
-- [ ] Display a grid or list of products with images, titles, prices, and descriptions.
+- [x] Display a grid or list of products with images, titles, prices, and descriptions.
 - [ ] Implement filters and sorting options for product listings.
 
 #### Product Details:
 
-- [ ] Create a product detail page with additional information about a selected product.
+- [x] Create a product detail page with additional information about a selected product.
 - [ ] Allow users to add items to the cart from this page.
 
 #### Shopping Cart:

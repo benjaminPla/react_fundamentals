@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setProducts } from "../store/slices/products";
 
@@ -52,13 +53,18 @@ const Products: React.FC = () => {
         <div className="row">
           {products.map((product) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
-              <div className="card" style={{ height: "100%" }}>
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="card-img-top img-fluid mt-4"
-                  style={{ maxHeight: "150px", objectFit: "contain" }}
-                />
+              <div className="card h-100">
+                <Link
+                  to={`/products/${product.id}`}
+                  style={{ textDecoration: "none" }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="card-img-top img-fluid mt-4"
+                    style={{ maxHeight: "150px", objectFit: "contain" }}
+                  />
+                </Link>
                 <div className="card-body">
                   <h5 className="card-title">{product.title}</h5>
                   <p
