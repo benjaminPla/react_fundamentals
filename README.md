@@ -11,16 +11,16 @@ This project is a demonstration of a highly scalable web application built using
 #### React Basics
 
 - [x] Use props to pass data to child components.
-- [ ] Manage component state using useState and useEffect hooks.
+- [x] Manage component state using useState and useEffect hooks.
 
 #### Routing:
 
-- [ ] Implement client-side routing using React Router or a similar library.
-- [ ] Set up routes for different pages like home, product listings, product details, cart, and checkout.
+- [x] Implement client-side routing using React Router or a similar library.
+- [x] Set up routes for different pages like home, product listings, product details, cart, and checkout.
 
 #### State Management:
 
-- [ ] Manage global application state using tools like Redux, Mobx, or React's Context API.
+- [x] Manage global application state using tools like Redux, Mobx, or React's Context API.
 - [ ] Handle state for features like user authentication, shopping cart, and product selection.
 
 #### User Authentication:

@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setProducts } from "../store/slices/products";
 
 interface IProduct {
   id: number;
@@ -9,7 +11,8 @@ interface IProduct {
 }
 
 const Products: React.FC = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.value);
   const [loading, setLoading] = useState(true);
   const [expandedDescription, setExpandedDescription] = useState<number | null>(
     null
@@ -19,7 +22,7 @@ const Products: React.FC = () => {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setProducts(data);
+      dispatch(setProducts(data));
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
