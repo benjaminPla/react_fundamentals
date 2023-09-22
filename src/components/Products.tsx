@@ -4,25 +4,30 @@ import { useSelector, useDispatch } from "react-redux";
 import { setProducts, setFilteredProducts } from "../store/slices/products";
 import Filters from "./Filters";
 
-interface IProduct {
-  id: number;
-  title: string;
+export interface IProduct {
+  category: string;
   description: string;
-  price: number;
+  id: number;
   image: string;
+  price: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+  title: string;
 }
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
   const filteredProducts = useSelector(
-    (state) => state.products.filteredProducts
+    (state: any) => state.products.filteredProducts
   );
   const [loading, setLoading] = useState(true);
   const [expandedDescription, setExpandedDescription] = useState<number | null>(
     null
   );
 
-  const fetchData = async (url: string): Promise<IProduct[]> => {
+  const fetchData = async (url: string): Promise<void> => {
     try {
       const response = await fetch(url);
       const data = await response.json();
@@ -56,7 +61,7 @@ const Products: React.FC = () => {
         <p>Loading...</p>
       ) : (
         <div className="row">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product: IProduct) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
               <div className="card h-100">
                 <Link

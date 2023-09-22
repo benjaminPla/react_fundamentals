@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams();
-  const product = useSelector((state) => state.products.value[id - 1]);
+  const product = useSelector(
+    (state: any) => state.products.products[Number(id) - 1]
+  );
 
   return (
     <div className="container mt-4">

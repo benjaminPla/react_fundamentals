@@ -2,9 +2,8 @@ interface IHomeItems {
   title: string;
   checks: string[];
 }
-[];
 
-export const homeItems: IHomeItems = [
+export const homeItems: IHomeItems[] = [
   {
     title: "React Basics",
     checks: [

@@ -1,10 +1,11 @@
 import React from "react";
 import { setFilteredProducts } from "../store/slices/products";
 import { useSelector, useDispatch } from "react-redux";
+import { IProduct } from "./Products";
 
 const Filters: React.FC = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.products);
+  const products = useSelector((state: any) => state.products.products);
 
   // should be a fetch
   const categories = [
@@ -20,7 +21,7 @@ const Filters: React.FC = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const filteredProducts = products.filter(
-      (product) => product.category === event.target.value
+      (product: IProduct) => product.category === event.target.value
     );
     dispatch(setFilteredProducts(filteredProducts));
   };
@@ -29,7 +30,7 @@ const Filters: React.FC = () => {
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const filteredProducts = products.filter(
-      (product) => product.price === event.target.value
+      (product: IProduct) => product.price === Number(event.target.value)
     );
     dispatch(setFilteredProducts(filteredProducts));
   };

@@ -1,7 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
 import store from "./store";
-import { useSelector } from "react-redux";
 import { RouterProvider } from "react-router-dom";
 import router from "./router";
 import { menuItems } from "./utils/menuItems";
