@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setProducts } from "../store/slices/products";
+import { setProducts, setFilteredProducts } from "../store/slices/products";
+import Filters from "./Filters";
 
 interface IProduct {
   id: number;
@@ -13,7 +14,9 @@ interface IProduct {
 
 const Products: React.FC = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products.value);
+  const filteredProducts = useSelector(
+    (state) => state.products.filteredProducts
+  );
   const [loading, setLoading] = useState(true);
   const [expandedDescription, setExpandedDescription] = useState<number | null>(
     null
@@ -24,6 +27,7 @@ const Products: React.FC = () => {
       const response = await fetch(url);
       const data = await response.json();
       dispatch(setProducts(data));
+      dispatch(setFilteredProducts(data));
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -47,11 +51,12 @@ const Products: React.FC = () => {
   return (
     <div className="container mt-4">
       <h1>Product List</h1>
+      <Filters />
       {loading ? (
         <p>Loading...</p>
       ) : (
         <div className="row">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
               <div className="card h-100">
                 <Link
