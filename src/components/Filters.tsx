@@ -64,32 +64,92 @@ const Filters: React.FC = () => {
         );
         break;
     }
-
     dispatch(setFilteredProducts(filteredProducts));
+  };
+
+  const handleSortPriceChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    let sortedProducts = [...products];
+
+    switch (event.target.value) {
+      case "":
+        dispatch(setFilteredProducts(products));
+        return;
+      case "asc":
+        sortedProducts = products.toSorted((a, b) => a.price - b.price);
+        break;
+      case "desc":
+        sortedProducts = products.toSorted((a, b) => b.price - a.price);
+        break;
+    }
+    dispatch(setFilteredProducts(sortedProducts));
+  };
+
+  const handleSortStarsChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    let sortedProducts = [...products];
+
+    switch (event.target.value) {
+      case "":
+        dispatch(setFilteredProducts(products));
+        return;
+      case "asc":
+        sortedProducts = products.toSorted(
+          (a, b) => a.rating.rate - b.rating.rate
+        );
+        break;
+      case "desc":
+        sortedProducts = products.toSorted(
+          (a, b) => b.rating.rate - a.rating.rate
+        );
+        break;
+    }
+    dispatch(setFilteredProducts(sortedProducts));
   };
 
   return (
     <div className="row my-4">
-      <h2>Filters</h2>
       <div className="col-md-6">
-        <select className="form-select" onChange={handleCategoryChange}>
-          <option value="">Select a category</option>
-          {categories.map((category) => (
-            <option key={category} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
+        <h2>Filters</h2>
+        <div className="col-md-12">
+          <select className="form-select" onChange={handleCategoryChange}>
+            <option value="">Select a category</option>
+            {categories.map((category) => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="col-md-12">
+          <select className="form-select" onChange={handlePriceRangeChange}>
+            <option value="">Select a price range</option>
+            {priceRanges.map((priceRange) => (
+              <option key={priceRange} value={priceRange}>
+                {priceRange}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
       <div className="col-md-6">
-        <select className="form-select" onChange={handlePriceRangeChange}>
-          <option value="">Select a price range</option>
-          {priceRanges.map((priceRange) => (
-            <option key={priceRange} value={priceRange}>
-              {priceRange}
-            </option>
-          ))}
-        </select>
+        <h2>Sort</h2>
+        <div className="col-md-12">
+          <select className="form-select" onChange={handleSortPriceChange}>
+            <option value="">Sort by price</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </select>
+        </div>
+        <div className="col-md-12">
+          <select className="form-select" onChange={handleSortStarsChange}>
+            <option value="">Sort by stars</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </select>
+        </div>
       </div>
     </div>
   );

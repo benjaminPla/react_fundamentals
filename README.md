@@ -37,7 +37,7 @@ This project is a demonstration of a highly scalable web application built using
 #### Product Listings:
 
 - [x] Display a grid or list of products with images, titles, prices, and descriptions.
-- [ ] Implement filters and sorting options for product listings.
+- [x] Implement filters and sorting options for product listings.
 
 #### Product Details:
 

@@ -61,7 +61,7 @@ const Products: React.FC = () => {
         <p>Loading...</p>
       ) : (
         <div className="row">
-          {filteredProducts.map((product: IProduct) => (
+          {filteredProducts.map((product) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
               <div className="card h-100">
                 <Link
@@ -98,6 +98,10 @@ const Products: React.FC = () => {
                         : "Read More"}
                     </button>
                   )}
+                  <p className="card-text">
+                    <span>Rating: {product.rating.rate}/5 </span>
+                    <span>({product.rating.count} reviews)</span>
+                  </p>
                   <p className="card-text">Price: ${product.price}</p>
                 </div>
               </div>
