@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { setFilteredProducts } from "../store/slices/products";
 import { useSelector, useDispatch } from "react-redux";
 import { IProduct } from "./Products";
@@ -6,6 +6,8 @@ import { IProduct } from "./Products";
 const Filters: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: any) => state.products.products);
+  const [categoryFilter, setCategoryFilter] = useState(null);
+  const [priceFilter, setPriceFilter] = useState(null);
 
   // should be a fetch
   const categories = [
@@ -14,24 +16,55 @@ const Filters: React.FC = () => {
     "electronics",
     "women's clothing",
   ];
-
   const priceRanges = ["Under $20", "$20 - $50", "$50 - $100", "Over $100"];
 
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    const filteredProducts = products.filter(
-      (product: IProduct) => product.category === event.target.value
-    );
-    dispatch(setFilteredProducts(filteredProducts));
+    if (!event.target.value) {
+      dispatch(setFilteredProducts(products));
+      setCategoryFilter(null);
+    } else {
+      const filteredProducts = products.filter(
+        (product: IProduct) => product.category === event.target.value
+      );
+      dispatch(setFilteredProducts(filteredProducts));
+      setCategoryFilter(event.target.value);
+    }
   };
 
   const handlePriceRangeChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
-    const filteredProducts = products.filter(
-      (product: IProduct) => product.price === Number(event.target.value)
-    );
+    let filteredProducts = [];
+
+    switch (event.target.value) {
+      case "":
+        dispatch(setFilteredProducts(products));
+        setPriceFilter(null);
+        return;
+      case priceRanges[0]:
+        filteredProducts = products.filter(
+          (product: IProduct) => product.price < 20
+        );
+        break;
+      case priceRanges[1]:
+        filteredProducts = products.filter(
+          (product: IProduct) => product.price >= 20 && product.price <= 50
+        );
+        break;
+      case priceRanges[2]:
+        filteredProducts = products.filter(
+          (product: IProduct) => product.price >= 50 && product.price <= 100
+        );
+        break;
+      case priceRanges[3]:
+        filteredProducts = products.filter(
+          (product: IProduct) => product.price >= 100
+        );
+        break;
+    }
+
     dispatch(setFilteredProducts(filteredProducts));
   };
 
