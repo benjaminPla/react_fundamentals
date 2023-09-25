@@ -4,6 +4,8 @@ import App from "../App";
 
 it("renders app component", () => {
   render(<App />);
-  const title = screen.getByText("Vite + React");
-  expect(title).toBeInTheDocument();
+
+  const homeLink = screen.getAllByText("Home");
+
+  expect(homeLink.length).toBe(2);
 });
