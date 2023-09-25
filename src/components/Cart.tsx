@@ -2,10 +2,23 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../store/slices/cart";
 
+export interface ICartProduct {
+  category: string;
+  description: string;
+  id: number;
+  image: string;
+  price: number;
+  rating: {
+    rate: number;
+    count: number;
+  };
+  title: string;
+  quantity?: number;
+}
+
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.cart.products);
-  console.log(cart);
 
   const handleRemoveFromCart = (productId: number) => {
     dispatch(removeFromCart(productId));
@@ -37,9 +50,16 @@ const Cart: React.FC = () => {
     </div>
   ));
 
-  const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = cart.reduce(
+    (total: number, item: ICartProduct) => total + (item.quantity || 0),
+    0
+  );
   const totalPrice = cart
-    .reduce((total, item) => total + item.price * item.quantity, 0)
+    .reduce(
+      (total: number, item: ICartProduct) =>
+        total + item.price * (item.quantity || 0),
+      0
+    )
     .toFixed(2);
 
   return (

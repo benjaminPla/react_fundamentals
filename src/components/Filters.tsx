@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { setFilteredProducts } from "../store/slices/products";
 import { useSelector, useDispatch } from "react-redux";
 import { IProduct } from "./Products";
@@ -6,8 +6,6 @@ import { IProduct } from "./Products";
 const Filters: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: any) => state.products.products);
-  const [categoryFilter, setCategoryFilter] = useState(null);
-  const [priceFilter, setPriceFilter] = useState(null);
 
   // should be a fetch
   const categories = [
@@ -23,13 +21,11 @@ const Filters: React.FC = () => {
   ) => {
     if (!event.target.value) {
       dispatch(setFilteredProducts(products));
-      setCategoryFilter(null);
     } else {
       const filteredProducts = products.filter(
         (product: IProduct) => product.category === event.target.value
       );
       dispatch(setFilteredProducts(filteredProducts));
-      setCategoryFilter(event.target.value);
     }
   };
 
@@ -41,7 +37,6 @@ const Filters: React.FC = () => {
     switch (event.target.value) {
       case "":
         dispatch(setFilteredProducts(products));
-        setPriceFilter(null);
         return;
       case priceRanges[0]:
         filteredProducts = products.filter(
@@ -77,10 +72,14 @@ const Filters: React.FC = () => {
         dispatch(setFilteredProducts(products));
         return;
       case "asc":
-        sortedProducts = products.toSorted((a, b) => a.price - b.price);
+        sortedProducts = products.toSorted(
+          (a: IProduct, b: IProduct) => a.price - b.price
+        );
         break;
       case "desc":
-        sortedProducts = products.toSorted((a, b) => b.price - a.price);
+        sortedProducts = products.toSorted(
+          (a: IProduct, b: IProduct) => b.price - a.price
+        );
         break;
     }
     dispatch(setFilteredProducts(sortedProducts));
@@ -97,12 +96,12 @@ const Filters: React.FC = () => {
         return;
       case "asc":
         sortedProducts = products.toSorted(
-          (a, b) => a.rating.rate - b.rating.rate
+          (a: IProduct, b: IProduct) => a.rating.rate - b.rating.rate
         );
         break;
       case "desc":
         sortedProducts = products.toSorted(
-          (a, b) => b.rating.rate - a.rating.rate
+          (a: IProduct, b: IProduct) => b.rating.rate - a.rating.rate
         );
         break;
     }

@@ -61,7 +61,7 @@ const Products: React.FC = () => {
         <p>Loading...</p>
       ) : (
         <div className="row">
-          {filteredProducts.map((product) => (
+          {filteredProducts.map((product: IProduct) => (
             <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
               <div className="card h-100">
                 <Link
