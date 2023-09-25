@@ -4,8 +4,10 @@ import { homeItems } from "../utils/homeItems";
 
 const Home: React.FC = () => {
   return (
-    <div className="container">
-      <h1 className="display-4">React Fundamentals</h1>
+    <div className="container" data-testid="container">
+      <h1 className="display-4" data-testid="title">
+        React Fundamentals
+      </h1>
       <div className="alert alert-warning" role="alert">
         <p>🚧 Under Construction 🚧</p>
         <p>
