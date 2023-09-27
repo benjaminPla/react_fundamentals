@@ -2,12 +2,12 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import NotFound from "../components/NotFound";
 
-describe("NotFound", () => {
+describe("NotFound should", () => {
   beforeEach(() => {
     render(<NotFound />);
   });
 
-  it("renders texts correctly", () => {
+  it("render texts correctly", () => {
     const descriptionText = "The page you are looking for does not exist.";
 
     const title = screen.getByText("404 - Not Found");
@@ -17,7 +17,7 @@ describe("NotFound", () => {
     expect(description).toBeInTheDocument();
   });
 
-  it("renders classNames correcly", () => {
+  it("render classNames correcly", () => {
     const container = screen.getByTestId("container");
     const div = screen.getByTestId("div");
 
@@ -27,7 +27,7 @@ describe("NotFound", () => {
     expect(div).toHaveClass("text-center");
   });
 
-  it("renders styles correcly", () => {
+  it("render styles correcly", () => {
     const container = screen.getByTestId("container");
 
     expect(container).toHaveStyle("minHeight: 100vh");

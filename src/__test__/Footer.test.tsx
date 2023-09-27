@@ -2,12 +2,12 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import Footer from "../components/Footer";
 
-describe("Footer", () => {
+describe("Footer should", () => {
   beforeEach(() => {
     render(<Footer />);
   });
 
-  it("renders texts correctly", () => {
+  it("render texts correctly", () => {
     const footerText = `© ${new Date().getFullYear()} React Fundamentals`;
 
     const text = screen.getByText(footerText);
@@ -19,7 +19,7 @@ describe("Footer", () => {
     expect(aboutLink).toBeInTheDocument();
   });
 
-  it("renders classNames correctly", () => {
+  it("render classNames correctly", () => {
     const footer = screen.getByTestId("footer");
     const container = screen.getByTestId("container");
     const rows = screen.getAllByTestId("row");

@@ -3,12 +3,12 @@ import { render, screen } from "@testing-library/react";
 import Home from "../components/Home";
 import { homeItems } from "../utils/homeItems";
 
-describe("Home", () => {
+describe("Home should", () => {
   beforeEach(() => {
     render(<Home />);
   });
 
-  it("renders texts correctly", () => {
+  it("render texts correctly", () => {
     const descriptionText =
       "This project is a demonstration of a highly scalable web application built using React, Vite, TypeScript, and Jest. It covers all the front-end fundamentals.";
 
@@ -21,7 +21,7 @@ describe("Home", () => {
     expect(description).toBeInTheDocument();
   });
 
-  it("renders classNames correcly", () => {
+  it("render classNames correcly", () => {
     const container = screen.getByTestId("container");
     const title = screen.getByTestId("title");
 
@@ -29,7 +29,7 @@ describe("Home", () => {
     expect(title).toHaveClass("display-4");
   });
 
-  it("renders HomeCard component", () => {
+  it("render HomeCard component", () => {
     homeItems.forEach((item) => {
       const cardTitle = screen.getByText(item.title);
       expect(cardTitle).toBeInTheDocument();
