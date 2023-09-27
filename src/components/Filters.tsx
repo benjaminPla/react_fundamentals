@@ -1,20 +1,12 @@
 import React from "react";
 import { setFilteredProducts } from "../store/slices/products";
+import { categories, priceRanges } from "../utils/filtersItems";
 import { useSelector, useDispatch } from "react-redux";
 import { IProduct } from "./Products";
 
 const Filters: React.FC = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: any) => state.products.products);
-
-  // should be a fetch
-  const categories = [
-    "men's clothing",
-    "jewelery",
-    "electronics",
-    "women's clothing",
-  ];
-  const priceRanges = ["Under $20", "$20 - $50", "$50 - $100", "Over $100"];
 
   const handleCategoryChange = (
     event: React.ChangeEvent<HTMLSelectElement>
@@ -109,11 +101,15 @@ const Filters: React.FC = () => {
   };
 
   return (
-    <div className="row my-4">
-      <div className="col-md-6">
+    <div className="row my-4" data-testid="container">
+      <div className="col-md-6" data-testid="mainCol">
         <h2>Filters</h2>
-        <div className="col-md-12">
-          <select className="form-select" onChange={handleCategoryChange}>
+        <div className="col-md-12" data-testid="secondaryCol">
+          <select
+            className="form-select"
+            onChange={handleCategoryChange}
+            data-testid="filterCategorySelect"
+          >
             <option value="">Select a category</option>
             {categories.map((category) => (
               <option key={category} value={category}>
@@ -122,8 +118,12 @@ const Filters: React.FC = () => {
             ))}
           </select>
         </div>
-        <div className="col-md-12">
-          <select className="form-select" onChange={handlePriceRangeChange}>
+        <div className="col-md-12" data-testid="secondaryCol">
+          <select
+            className="form-select"
+            onChange={handlePriceRangeChange}
+            data-testid="filterPriceSelect"
+          >
             <option value="">Select a price range</option>
             {priceRanges.map((priceRange) => (
               <option key={priceRange} value={priceRange}>
@@ -133,17 +133,25 @@ const Filters: React.FC = () => {
           </select>
         </div>
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6" data-testid="mainCol">
         <h2>Sort</h2>
-        <div className="col-md-12">
-          <select className="form-select" onChange={handleSortPriceChange}>
+        <div className="col-md-12" data-testid="secondaryCol">
+          <select
+            className="form-select"
+            onChange={handleSortPriceChange}
+            data-testid="sortPriceSelect"
+          >
             <option value="">Sort by price</option>
             <option value="asc">Low to High</option>
             <option value="desc">High to Low</option>
           </select>
         </div>
         <div className="col-md-12">
-          <select className="form-select" onChange={handleSortStarsChange}>
+          <select
+            className="form-select"
+            onChange={handleSortStarsChange}
+            data-testid="sortStartsSelect"
+          >
             <option value="">Sort by stars</option>
             <option value="asc">Low to High</option>
             <option value="desc">High to Low</option>
