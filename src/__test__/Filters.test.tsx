@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+// import { render, screen, fireEvent } from "@testing-library/react";
 import Filters from "../components/Filters";
 import { categories, priceRanges } from "../utils/filtersItems";
 
