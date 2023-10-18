@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { setProducts, setFilteredProducts } from "../store/slices/products";
+import { fetchProducts } from "../store/slices/products";
 import Filters from "./Filters";
 
 export interface IProduct {
@@ -22,23 +22,10 @@ const Products: React.FC = () => {
   const filteredProducts = useSelector(
     (state: any) => state.products.filteredProducts
   );
-  const [loading, setLoading] = useState(true);
+  const loading = useSelector((state: any) => state.products.status);
   const [expandedDescription, setExpandedDescription] = useState<number | null>(
     null
   );
-
-  const fetchData = async (url: string): Promise<void> => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      dispatch(setProducts(data));
-      dispatch(setFilteredProducts(data));
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
 
   const toggleDescription = (productId: number) => {
     if (expandedDescription === productId) {
@@ -49,8 +36,7 @@ const Products: React.FC = () => {
   };
 
   useEffect(() => {
-    const url = "https://fakestoreapi.com/products";
-    fetchData(url);
+    dispatch(fetchProducts());
   }, []);
 
   return (
