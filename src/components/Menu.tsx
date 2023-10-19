@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface MenuProps {
   items: {
@@ -14,9 +15,9 @@ const Menu: React.FC<MenuProps> = ({ items }) => {
         <ul className="navbar-nav">
           {items.map((item, index) => (
             <li className="nav-item" key={index}>
-              <a className="nav-link" href={item.link}>
+              <Link className="nav-link" to={item.link}>
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
