@@ -10,6 +10,7 @@ import NotFound from "./components/NotFound";
 import Products from "./components/Products";
 import ProductDetail from "./components/ProductDetail";
 import Cart from "./components/Cart";
+import Message from "./components/Message";
 import Footer from "./components/Footer";
 
 const App: React.FC = () => {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        <Message />
         <Footer />
       </Router>
     </Provider>

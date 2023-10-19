@@ -42,13 +42,13 @@ This project is a demonstration of a highly scalable web application built using
 #### Product Details:
 
 - [x] Create a product detail page with additional information about a selected product.
-- [ ] Allow users to add items to the cart from this page.
+- [x] Allow users to add items to the cart from this page.
 
 #### Shopping Cart:
 
-- [ ] Develop a shopping cart component to display added products.
-- [ ] Implement functionality to add, remove, and update quantities of items.
-- [ ] Calculate and display the total price.
+- [x] Develop a shopping cart component to display added products.
+- [x] Implement functionality to add, remove, and update quantities of items.
+- [x] Calculate and display the total price.
 
 #### Forms and Validation:
 
@@ -66,8 +66,8 @@ This project is a demonstration of a highly scalable web application built using
 
 #### Error Handling:
 
-- [ ] Handle errors gracefully and provide feedback to users.
-- [ ] Implement error boundaries to prevent crashes.
+- [x] Handle errors gracefully and provide feedback to users.
+- [x] Implement error boundaries to prevent crashes.
 
 #### Performance Optimization:
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../store/slices/cart";
+import { setMessage } from "../store/slices/message";
 import { IProduct } from "./Products";
 
 const ProductDetail: React.FC = () => {
@@ -14,6 +15,7 @@ const ProductDetail: React.FC = () => {
 
   const handleAddToCart = (product: IProduct) => {
     dispatch(addToCart({ ...product, quantity }));
+    dispatch(setMessage({ text: `${product.title} added`, type: "success" }));
   };
 
   const handleQuantityChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,14 +1,21 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { setMessage } from "./message";
 
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
-  async () => {
+  async (_, thunkAPI) => {
     try {
       const response = await fetch("https://fakestoreapi.com/products");
       const data = await response.json();
       return data;
     } catch (error) {
       console.error("Error fetching data:", error);
+      thunkAPI.dispatch(
+        setMessage({
+          text: error.message || "An error occurred while fetching data.",
+          type: "error",
+        })
+      );
       return [];
     }
   }
