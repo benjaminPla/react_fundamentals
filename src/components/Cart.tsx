@@ -67,15 +67,18 @@ const Cart: React.FC = () => {
       <h1>Your Shopping Cart</h1>
       <div className="row">
         <div className="col-md-8">
-          <div className="cart-items">{cartItems}</div>
+          {cart.length ? (
+            <div className="cart-items">{cartItems}</div>
+          ) : (
+            <p>No items yet</p>
+          )}
         </div>
-
         <div className="col-md-4">
           <div className="cart-summary">
             <h2>Order Summary</h2>
             <p>Total Items: {totalItems}</p>
             <p>Total Price: ${totalPrice}</p>
-            <button className="btn btn-primary">Checkout</button>
+            <button className="btn btn-primary">Pay</button>
           </div>
         </div>
       </div>

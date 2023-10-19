@@ -6,7 +6,14 @@ const cartSlice = createSlice({
   initialState: { products: [] as ICartProduct[] },
   reducers: {
     addToCart: (state, action: PayloadAction<ICartProduct>) => {
-      state.products.push(action.payload);
+      const alreadyInCartIndex = state.products.findIndex(
+        (product) => product.id === action.payload.id
+      );
+      if (alreadyInCartIndex !== -1) {
+        state.products[alreadyInCartIndex].quantity += action.payload.quantity;
+      } else {
+        state.products.push(action.payload);
+      }
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const productIdToRemove = action.payload;
